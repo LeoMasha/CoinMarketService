@@ -32,7 +32,7 @@ class Binance:
                 asks = [(float(ask[0]), float(ask[1])) for ask in msg['asks']]
                 asks.sort(key=operator.itemgetter(0), reverse=False)
                 callback({
-                    'symbol': 'binance_{0}_{1}'.format(base, quote),
+                    'symbol': 'binance_{0}_{1}'.format(base.lower(), quote.lower()),
                     'timestamp': datetime.datetime.now().timestamp(),
                     'depth': {
                         'bids': bids,

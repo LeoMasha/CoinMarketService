@@ -41,7 +41,7 @@ class Huobi:
                     asks = [(float(ask[0]), float(ask[1])) for ask in r['asks']]
                     asks.sort(key=operator.itemgetter(0), reverse=False)
                     callback({
-                        'symbol': 'huobi_{0}_{1}'.format(base, quote),
+                        'symbol': 'huobi_{0}_{1}'.format(base.lower(), quote.lower()),
                         'timestamp': r['ts'] / 1000,
                         'depth': {
                             'bids': bids,
