@@ -18,7 +18,7 @@ class Binance:
             ).json()
             if r is not None and 'symbols' in r:
                 for m in r['symbols']:
-                    result.append([m['base-currency'].upper(), m['quote-currency'].upper()])
+                    result.append([m['baseAsset'].upper(), m['quoteAsset'].upper()])
         except json.JSONDecodeError:
             pass
         return result
