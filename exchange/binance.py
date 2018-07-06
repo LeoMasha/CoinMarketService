@@ -49,3 +49,15 @@ class Binance:
             }
         }).start()
         return self.thread
+
+
+if __name__ == '__main__':
+    def callback(msg):
+        print(msg)
+
+    ex = Binance()
+    print(ex.__name__())
+    print(ex.symbols())
+    ex.ws('ETH', 'BTC', callback)
+    while True:
+        pass

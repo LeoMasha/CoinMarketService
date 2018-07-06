@@ -47,3 +47,14 @@ class OKEx:
         w = websocket.WebSocketApp('wss://real.okcoin.cn:10440/websocket/okcoinapi', on_message=on_message, on_open=on_open)
         self.thread = threading.Thread(target=w.run_forever, daemon=True).start()
         return self.thread
+
+if __name__ == '__main__':
+    def callback(msg):
+        print(msg)
+
+    ex = OKEx()
+    print(ex.__name__())
+    print(ex.symbols())
+    ex.ws('ETH', 'BTC', callback)
+    while True:
+        pass
