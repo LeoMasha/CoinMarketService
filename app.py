@@ -23,6 +23,9 @@ class WebSocketHandler(websocket.WebSocketHandler):
             print('Ticker is already started.')
         websocket.WebSocketHandler.__init__(self, application, request, **kwargs)
 
+    def check_origin(self, origin):
+        return True
+
     def open(self):
         if self not in WebSocketHandler.clients:
             WebSocketHandler.clients.add(self)
